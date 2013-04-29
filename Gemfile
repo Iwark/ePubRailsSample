@@ -1,15 +1,17 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0.beta1'
+gem 'rails', '4.0.0.beta1', github: 'rails/rails'
+gem 'active_record_deprecated_finders', github: 'rails/active_record_deprecated_finders'
 
 gem 'pg'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 4.0.0.beta1'
-  gem 'coffee-rails', '~> 4.0.0.beta1'
+  gem 'sprockets-rails', github: 'rails/sprockets-rails'
+  gem 'sass-rails',   '~> 4.0.0.beta', github: 'rails/sass-rails'
+  gem 'coffee-rails', '~> 4.0.0.beta', github: 'rails/coffee-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', platforms: :ruby
