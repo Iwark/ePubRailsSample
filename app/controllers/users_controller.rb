@@ -62,6 +62,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def logout
+    session[:user_id] = nil
+    respond_to do |format|
+      format.html { render json: {:aaa=>current_user} }#redirect_to :root
+      format.json { render json: {:aaa=>current_user} }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

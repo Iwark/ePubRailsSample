@@ -3,6 +3,10 @@ class WelcomeController < ApplicationController
 	before_action :welcome_logined
   def index
   	@user = User.new
+  	respond_to do |format|
+      format.html
+      format.json { render json: @user }
+    end
   end
 
   private

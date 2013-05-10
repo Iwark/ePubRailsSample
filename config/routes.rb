@@ -1,5 +1,6 @@
 Epubapi::Application.routes.draw do
   get "welcome/index"
+  delete "users/logout"
   resources :users
 
   resources :sessions

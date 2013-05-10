@@ -5,13 +5,16 @@ class SessionsController < ApplicationController
 
   def create
   	user = User.find_by name:params[:name]
-  	if user && user.authenticate(params[:password])
-  		session[:user_id] = user.id
-  		redirect_to user, :notice => 'Logged in!'
-  	else
-  		flash.now.alert = "Invalid email or password"
-  		render 'new'
-  	end
+    respond_to do |format|
+      if user && user.authenticate(params[:password])
+        session[:user_id] = user.id
+        format.html { redirect_to user, notice: 'Logged in!' }
+        format.json { render json: user }
+      else
+        format.html { render 'new' }
+        format.json { render json: {"error"=>"Error!"} }
+      end
+    end
   end
 
   def destroy
